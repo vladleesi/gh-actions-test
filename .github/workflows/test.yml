@@ -21,8 +21,9 @@ jobs:
         run: ./gradlew test
 
       - name: Push to deploy branch
+        uses: actions/checkout@v2
         with:
-          ref: deploy
+          ref: release
         if: success()
         run: |
           git config --local user.email "vladleesi@outlook.com"
