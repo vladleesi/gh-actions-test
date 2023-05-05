@@ -22,10 +22,8 @@ jobs:
   on-success:
     runs-on: ubuntu-latest
     steps:
-      - name: Push to deploy branch
       - uses: actions/checkout@v2
-        with:
-          ref: release
+      - name: Push to deploy branch
         run: |
           git config --local user.email "vladleesi@outlook.com"
           git config --local user.name "vladleesi"
