@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">gh-actions-test</string>
+
+    <string name="hello">Hello World from GitHub Actions!</string>
 </resources>
