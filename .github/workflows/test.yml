@@ -21,6 +21,7 @@ jobs:
         run: ./gradlew test
   on-success:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
       - name: Push to deploy branch
@@ -30,3 +31,8 @@ jobs:
           git checkout -B release
           git pull origin master
           git push -f origin release
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo "Workflow was a failure"
