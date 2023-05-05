@@ -27,4 +27,5 @@ jobs:
         run: |
           git config --local user.email "vladleesi@outlook.com"
           git config --local user.name "vladleesi"
-          git push -f origin release
+          git checkout -B release
+          git pull origin master
