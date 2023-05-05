@@ -14,7 +14,20 @@ jobs:
           java-version: '11'
       - name: Make gradlew executable
         run: chmod +x ./gradlew
+
       - name: Build with Gradle
         run: ./gradlew build
       - name: Run unit tests
         run: ./gradlew test
+
+      - name: Push to deploy branch
+        with:
+          ref: deploy
+        if: success()
+        run: |
+          git config --local user.email "vladleesi@outlook.com"
+          git config --local user.name "vladleesi"
+          git checkout -B release
+          git add .
+          git commit -m "Deploy from GitHub Actions"
+          git push -f origin release
