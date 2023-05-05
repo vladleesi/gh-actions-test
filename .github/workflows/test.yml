@@ -27,7 +27,4 @@ jobs:
         run: |
           git config --local user.email "vladleesi@outlook.com"
           git config --local user.name "vladleesi"
-#          git checkout -B release
-#          git add .
-#          git commit -m "Deploy from GitHub Actions"
           git push -f origin release
